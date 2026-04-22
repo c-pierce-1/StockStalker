@@ -1,1 +1,4 @@
 # StockStalker
+
+MVP DEMO:
+https://uncg-my.sharepoint.com/:v:/g/personal/chpierce2_uncg_edu/IQB7JvZ4xshASrKWmxG3RRiMASRx93MnQLx0FB__tsCp0Ac?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=WuRljJ
