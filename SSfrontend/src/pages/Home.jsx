@@ -11,7 +11,7 @@ function Home() {
     useEffect(() => {
         const fetchNews = async () => {
             try {
-                const response = await fetch('${API_URL}/api/market-news');
+                const response = await fetch(`${API_URL}/api/market-news`);
                 if (response.ok) {
                     setNews(await response.json());
                 }

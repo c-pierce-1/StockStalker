@@ -33,7 +33,7 @@ StockStalker is a web app that allows users to search for and subscribe to publi
 5. Open your browser and navigate to `http://localhost:5173` to view the application.
 
 ## Deployed app URL
-
+https://stockstalker.onrender.com
 
 ## Reflection
     - React was chosen to give users a smooth browsing experience without full page reloads.
