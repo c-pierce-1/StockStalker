@@ -113,6 +113,7 @@ app.put('/api/watchlist/:id', async (req, res) => {
     }
 });
 
+//Function for getting real historical data from Finnhub, use only if you have a paid account with Finnhub.
 /*app.get('/api/stock-history/:symbol', async (req, res) => {
     const { symbol } = req.params;
     const apiKey = process.env.FINNHUB_API_KEY;

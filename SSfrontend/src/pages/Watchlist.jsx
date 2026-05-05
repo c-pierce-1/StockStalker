@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function Watchlist({ user }) {
     const [stocks, setStocks] = useState([]);
     const navigate = useNavigate();
@@ -20,7 +22,7 @@ function Watchlist({ user }) {
 
     const fetchMarketNews = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/api/market-news`);
+            const response = await fetch(`${API_URL}/api/market-news`);
             if (response.ok) setNews(await response.json());
         } catch (err) {
             console.error("Failed to load market news", err);
@@ -30,7 +32,7 @@ function Watchlist({ user }) {
 
     const fetchWatchlist = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/api/watchlist/${user.id}`);
+            const response = await fetch(`${API_URL}/api/watchlist/${user.id}`);
             if (response.ok) {
                 const data = await response.json();
                 setStocks(data);
@@ -47,7 +49,7 @@ function Watchlist({ user }) {
 
         for (let stock of watchlistStocks) {
             try {
-                const response = await fetch(`http://localhost:3000/api/quote/${stock.ticker_symbol}`);
+                const response = await fetch(`${API_URL}/api/quote/${stock.ticker_symbol}`);
                 const data = await response.json();
                 const currentPrice = data.c || 0;
 
@@ -75,7 +77,7 @@ function Watchlist({ user }) {
 
     const handleDelete = async (id) => {
         try {
-            const response = await fetch(`http://localhost:3000/api/watchlist/${id}`, {
+            const response = await fetch(`${API_URL}/api/watchlist/${id}`, {
                 method: 'DELETE'
             });
             if (response.ok) {
@@ -90,7 +92,7 @@ function Watchlist({ user }) {
         if (!price) return;
 
         try {
-            const response = await fetch(`http://localhost:3000/api/watchlist/${id}`, {
+            const response = await fetch(`${API_URL}/api/watchlist/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ target_price: price })

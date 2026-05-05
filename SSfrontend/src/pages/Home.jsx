@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+const API_URL = import.meta.env.VITE_API_URL;
+
 function Home() {
     const [query, setQuery] = useState('');
     const navigate = useNavigate();
@@ -8,7 +11,7 @@ function Home() {
     useEffect(() => {
         const fetchNews = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/market-news');
+                const response = await fetch('${API_URL}/api/market-news');
                 if (response.ok) {
                     setNews(await response.json());
                 }

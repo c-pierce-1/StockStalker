@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function StockDetails({ user }) {
     const [realQuote, setRealQuote] = useState(null);
     const { ticker } = useParams();
@@ -11,11 +13,11 @@ function StockDetails({ user }) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const historyRes = await fetch(`http://localhost:3000/api/stock-history/${ticker}`);
+                const historyRes = await fetch(`${API_URL}/api/stock-history/${ticker}`);
                 const historyData = await historyRes.json();
                 setStockData(historyData);
 
-                const quoteRes = await fetch(`http://localhost:3000/api/quote/${ticker}`);
+                const quoteRes = await fetch(`${API_URL}/api/quote/${ticker}`);
                 if (quoteRes.ok) {
                     const quoteData = await quoteRes.json();
                     setRealQuote(quoteData);
@@ -30,7 +32,7 @@ function StockDetails({ user }) {
 
     /*    const fetchStockDetails = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/api/stock-history/${ticker}`);
+                const response = await fetch(`${API_URL}/api/stock-history/${ticker}`);
                 const data = await response.json();
                 if (response.ok) {
                     setStockData(data);
@@ -50,7 +52,7 @@ function StockDetails({ user }) {
 
     const handleAddToWatchlist = async () => {
         try {
-            const response = await fetch('http://localhost:3000/api/watchlist', {
+            const response = await fetch(`${API_URL}/api/watchlist`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
